@@ -15,7 +15,7 @@ eu precisarei simular comportamentos do repository, para que a lógica do servic
 @ExtendWith(SpringExtension.class)
 public PessoaServiceTests{
     
-    // dessa forma, poderei usar os métodos do service pois todas as suas dependências serão 'mockadas'
+    // dessa forma, todas as suas dependências serão injetadas através de mocks
     @InjectMocks
     private PessoaService pessoaService;
     // aqui estou mockando o repository usado no pessoa service, e ele será injetado
