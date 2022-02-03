@@ -8,19 +8,19 @@ testes unitários de @Services ou @Component.
 visto que não estamos testanto a **integração** entre eles, apenas testando pequenas partes (métodos).  
 Para termos controle sobre eles, usamos o termo mock, e temos as anotações: @Mock e @InjectMocks.  
 Note que não será utilizada a anotação @Autowired.  
-Suponha que eu esteja testando uma classe de service chamada PessoaService, e ela contém um PessoRepository,
+Suponha que eu esteja testando uma classe de service chamada ProdutoService, e ela contém um ProdutoRepository,
 eu precisarei simular comportamentos do repository, para que a lógica do service funcione, então a classe de teste ficaria mais ou menos:  
 
 ```java
 @ExtendWith(SpringExtension.class)
-public PessoaServiceTests{
+public ProdutoServiceTests{
     
     // dessa forma, todas as suas dependências serão injetadas através de mocks
     @InjectMocks
-    private PessoaService pessoaService;
-    // aqui estou mockando o repository usado no pessoa service, e ele será injetado
+    private ProdutoService ProdutoService;
+    // aqui estou mockando o repository usado no produto service, e ele será injetado
     @Mock
-    private PessoaRepository pessoaRepository;
+    private ProdutoRepository ProdutoRepository;
 }
 ```
 
@@ -38,10 +38,10 @@ e um teste não influencie no outro.
 ```java
 @SpringBootTest
 @Transactional
-public PessoaServiceTests{
+public ProdutoServiceTests{
 
     @Autowired
-    private PessoaService pessoaService;
+    private ProdutoService ProdutoService;
 
 }
 ```
